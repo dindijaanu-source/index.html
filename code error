@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Supercars Dashboard</title>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Internal CSS -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      display: flex;
+      min-height: 100vh;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    .dashboard {
+      display: flex;
+      width: 100%;
+    }
+
+    .sidebar {
+      width: 220px;
+      background-color: #111;
+      color: white;
+      padding: 20px;
+    }
+
+    .sidebar h2 {
+      margin-bottom: 30px;
+      font-size: 24px;
+    }
+
+    .sidebar nav ul {
+      list-style: none;
+    }
+
+    .sidebar nav ul li {
+      margin-bottom: 15px;
+    }
+
+    .sidebar nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 30px;
+    }
+
+    header h1 {
+      margin-bottom: 20px;
+    }
+
+    .cards {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      flex: 1;
+      min-width: 200px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: #444;
+    }
+
+    .charts {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>Supercars</h2>
+      <nav>
+        <ul>
+          <li><a href="#">🏠 Home</a></li>
+          <li><a href="#">🚗 Models</a></li>
+          <li><a href="#">🏁 Brands</a></li>
+          <li><a href="#">📊 Stats</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header>
+        <h1>Welcome to the Supercars Dashboard</h1>
+      </header>
+
+      <section class="cards">
+        <div class="card">
+          <h3>Total Models</h3>
+          <p>42</p>
+        </div>
+        <div class="card">
+          <h3>Top Brand</h3>
+          <p>Ferrari</p>
+        </div>
+        <div class="card">
+          <h3>Fastest Car</h3>
+          <p>Bugatti Chiron</p>
+        </div>
+      </section>
+
+      <section class="charts">
+        <canvas id="speedChart" height="100"></canvas>
+      </section>
+    </main>
+  </div>
+
+  <!-- Internal JS -->
+  <script>
+    const ctx = document.getElementById('speedChart').getContext('2d');
+    const speedChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Bugatti Chiron', 'Koenigsegg Jesko', 'McLaren Speedtail', 'Lamborghini Aventador', 'Ferrari SF90'],
+        datasets: [{
+          label: 'Top Speed (mph)',
+          data: [304, 278, 250, 217, 211],
+          backgroundColor: '#e50914'
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: true },
+          title: {
+            display: true,
+            text: 'Top Speed Comparison'
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: false
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
