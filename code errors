@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Supercar Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>SupercarDash</h2>
+      <nav>
+        <ul>
+          <li>Dashboard</li>
+          <li>Cars</li>
+          <li>Sales</li>
+          <li>Brands</li>
+          <li>Settings</li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header>
+        <h1>Welcome to Supercar Dashboard</h1>
+      </header>
+
+      <section class="cards">
+        <div class="card">Total Cars <span>120</span></div>
+        <div class="card">Total Brands <span>8</span></div>
+        <div class="card">Total Sales <span>$12M</span></div>
+        <div class="card">New This Month <span>12</span></div>
+      </section>
+
+      <section class="chart-section">
+        <canvas id="salesChart"></canvas>
+      </section>
+
+      <section class="car-table">
+        <h2>Top Supercars</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Car</th>
+              <th>Brand</th>
+              <th>Price</th>
+              <th>Units Sold</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>LaFerrari</td>
+              <td>Ferrari</td>
+              <td>$1.5M</td>
+              <td>499</td>
+            </tr>
+            <tr>
+              <td>Chiron</td>
+              <td>Bugatti</td>
+              <td>$3M</td>
+              <td>500</td>
+            </tr>
+            <tr>
+              <td>McLaren P1</td>
+              <td>McLaren</td>
+              <td>$1.2M</td>
+              <td>375</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
